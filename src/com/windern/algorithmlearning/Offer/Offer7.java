@@ -52,14 +52,52 @@ public class Offer7 {
         return treeNode;
     }
 
+    public TreeNode reConstructBinaryTree2(int[] pre, int[] in) {
+        for (int i = 0; i < in.length; i++) {
+            mapInIndex.put(in[i], i);
+        }
+
+        return reConstructBinaryTree(pre, 0, pre.length - 1, 0);
+    }
+
+    /**
+     * 重构数
+     * 精简版，只用inL来实现，in左边起始的位置就可以算左边数的长度，和右边数的起点
+     * @param pre
+     * @param preL
+     * @param preR
+     * @param inL in左边起始的位置
+     * @return
+     */
+    private TreeNode reConstructBinaryTree(int[] pre, int preL, int preR, int inL) {
+        if (preL > preR) {
+            return null;
+        }
+
+        int val = pre[preL];
+        TreeNode treeNode = new TreeNode(val);
+
+        int index = mapInIndex.get(val);
+        int leftSize = index - inL;
+
+        treeNode.left = reConstructBinaryTree(pre, preL + 1, preL + 1 + leftSize - 1, inL);
+        treeNode.right = reConstructBinaryTree(pre, preL + leftSize + 1, preR, inL + leftSize + 1);
+
+        return treeNode;
+    }
+
 
     public static void main(String[] args) {
         int[] pre = {1, 2, 4, 7, 3, 5, 6, 8};
         int[] in = {4, 7, 2, 1, 5, 3, 8, 6};
 
-        Offer7 instance = new Offer7();
-        TreeNode treeNode = instance.reConstructBinaryTree(pre, in);
-        testPrintTreeNode(treeNode);
+//        Offer7 instance = new Offer7();
+//        TreeNode treeNode = instance.reConstructBinaryTree(pre, in);
+//        testPrintTreeNode(treeNode);
+
+        Offer7 instance2 = new Offer7();
+        TreeNode treeNode2 = instance2.reConstructBinaryTree2(pre, in);
+        testPrintTreeNode(treeNode2);
     }
 
     public static class TreeNode {
