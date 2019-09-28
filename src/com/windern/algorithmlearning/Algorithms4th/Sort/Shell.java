@@ -14,10 +14,8 @@ public class Shell extends Example {
             // i从h开始
             for (int i = h; i < n; i++) {
                 //将a[i]插入到a[i-h]、a[i-2*h]、a[i-3*h]……的序列中
-                for (int j = i; j - h >= 0; j -= h) {
-                    if (less(a[j], a[j - h])) {
-                        exch(a, j, j - h);
-                    }
+                for (int j = i; j - h >= 0 && less(a[j], a[j - h]); j -= h) {
+                    exch(a, j, j - h);
                 }
             }
 
