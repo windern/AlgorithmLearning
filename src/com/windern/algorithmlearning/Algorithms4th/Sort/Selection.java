@@ -24,7 +24,7 @@ public class Selection extends Example {
 
         show(array);
         sort(array);
-        assert isSorted(array);
+        System.out.println(isSorted(array));
         show(array);
     }
 }

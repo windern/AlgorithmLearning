@@ -39,7 +39,7 @@ public class Insertion extends Example {
         show(array);
 //        sort(array);
         sortImprove(array);
-        assert isSorted(array);
+        System.out.println(isSorted(array));
         show(array);
     }
 }
