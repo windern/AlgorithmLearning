@@ -1,5 +1,8 @@
 package com.windern.algorithmlearning.GeekTimeWangZheng;
 
+/**
+ * 链表实现LRU算法
+ */
 public class LinkLRU {
 
     public Node first;
