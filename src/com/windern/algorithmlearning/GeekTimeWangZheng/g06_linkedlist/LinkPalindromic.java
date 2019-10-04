@@ -1,4 +1,4 @@
-package com.windern.algorithmlearning.GeekTimeWangZheng;
+package com.windern.algorithmlearning.GeekTimeWangZheng.g06_linkedlist;
 
 /**
  * 链表判断是否是回文

@@ -1,4 +1,4 @@
-package com.windern.algorithmlearning.GeekTimeWangZheng;
+package com.windern.algorithmlearning.GeekTimeWangZheng.g06_linkedlist;
 
 public class LinkJosephusCircle {
 
