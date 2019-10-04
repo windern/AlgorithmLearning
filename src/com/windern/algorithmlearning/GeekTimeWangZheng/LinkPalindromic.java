@@ -74,6 +74,11 @@ public class LinkPalindromic {
         return slow;
     }
 
+    /**
+     * 递归实现翻转链表
+     * @param node 头节点
+     * @return 翻转后的链表
+     */
     public static Node revertNode(Node node) {
         if (node == null || node.next == null) {
             return node;
@@ -88,6 +93,28 @@ public class LinkPalindromic {
         loop.next = node;
 
         return left;
+    }
+
+    /**
+     * 头插法实现翻转链表
+     * @param node 头节点
+     * @return 翻转后的链表
+     */
+    public static Node revertNodeInsert(Node node) {
+        if (node == null || node.next == null) {
+            return node;
+        }
+
+        Node newNode = new Node();
+        Node nextNode = node;
+        while(nextNode != null) {
+            Node tmp = nextNode.next;
+            nextNode.next = newNode.next;
+            newNode.next = nextNode;
+            nextNode = tmp;
+        }
+
+        return newNode.next;
     }
 
     public static boolean checkSame(Node first, Node second) {
@@ -122,6 +149,10 @@ public class LinkPalindromic {
         public char value;
         public Node next;
 
+        public Node() {
+
+        }
+
         public Node(char value) {
             this(value, null);
         }
@@ -143,10 +174,23 @@ public class LinkPalindromic {
     }
 
     public static void main(String[] args) {
+        testRevertNodeInsert();
+
         test1();
         test2();
         test3();
         test4();
+    }
+
+    public static void testRevertNodeInsert() {
+        Node a = new Node('a');
+        Node b = new Node('b', a);
+        Node c = new Node('c', b);
+        Node root = new Node('d', c);
+        show(root);
+        Node node = revertNodeInsert(root);
+        show(node);
+        System.out.println();
     }
 
     public static void test1() {
