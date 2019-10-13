@@ -1,20 +1,20 @@
 package com.windern.algorithmlearning.GeekTimeWangZheng.g16_binarysearch;
 
-public class FirstEqualBigBSearch {
+public class LastEqualSmallBSearch {
 
     public static int bsearch(int[] a, int value) {
         int low = 0;
         int high = a.length - 1;
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            if (a[mid] >= value) {
-                if (mid == 0 || a[mid - 1] < value) {
+            if (a[mid] <= value) {
+                if (mid == a.length - 1 || a[mid + 1] > value) {
                     return mid;
                 } else {
-                    high = mid - 1;
+                    low = mid + 1;
                 }
             } else {
-                low = mid + 1;
+                high = mid - 1;
             }
         }
         return -1;
