@@ -1,6 +1,8 @@
 package com.windern.algorithmlearning.mooc.array;
 
 /**
+ * 26 删除排序数组中的重复项
+ *
  * @author windern
  * @date 2020/11/21 18:14
  **/

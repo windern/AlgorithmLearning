@@ -3,6 +3,8 @@ package com.windern.algorithmlearning.mooc.array;
 import java.util.Arrays;
 
 /**
+ * 27 移除元素
+ *
  * @author windern
  * @date 2020/11/21 17:39
  **/
