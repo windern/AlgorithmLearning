@@ -20,9 +20,24 @@ public class ListNodeManager {
         return head.next;
     }
 
+    public static ListNode create(int[] array, int n) {
+        if (n == 0) {
+            return null;
+        }
+
+        ListNode head = new ListNode(array[0]);
+        ListNode cur = head;
+        for (int i = 1; i < n; i++) {
+            cur.next = new ListNode(array[i]);
+            cur = cur.next;
+        }
+
+        return head;
+    }
+
     public static void print(ListNode head) {
         ListNode cur = head;
-        while(cur != null) {
+        while (cur != null) {
             System.out.print(cur.val + "->");
 
             cur = cur.next;
