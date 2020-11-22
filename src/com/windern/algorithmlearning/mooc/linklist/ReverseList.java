@@ -25,10 +25,32 @@ public class ReverseList {
         return pre;
     }
 
+    public static ListNode reverseList2(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        if (head.next == null) {
+            return head;
+        }
+
+        ListNode cur = head;
+        ListNode next = cur.next;
+        cur.next = null;
+        ListNode after = reverseList2(next);
+
+        ListNode loop = after;
+        while (loop.next != null) {
+            loop = loop.next;
+        }
+        loop.next = cur;
+
+        return after;
+    }
+
     public static void main(String[] args) {
         ListNode listNode = ListNodeManager.create(5);
         ListNodeManager.print(listNode);
-        ListNode result = reverseList(listNode);
+        ListNode result = reverseList2(listNode);
         ListNodeManager.print(result);
     }
 }
