@@ -42,6 +42,25 @@ public class ContainsNearbyDuplicate {
         return false;
     }
 
+    public static boolean containsNearbyDuplicate2(int[] nums, int k) {
+        // 存储出现元素的位置<num, index>
+        Map<Integer, Integer> map = new HashMap<>(16);
+
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(nums[i])) {
+                return true;
+            }
+
+            map.put(nums[i], 1);
+
+            if (map.size() == k + 1) {
+                map.remove(nums[i - k]);
+            }
+        }
+
+        return false;
+    }
+
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 1};
         int k = 3;
